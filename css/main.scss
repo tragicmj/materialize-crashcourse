@@ -1,0 +1,85 @@
+@import "_breakpoints", "_functions", "_variables";
+//++++Color Variables++++//
+$colors: (
+  font-dark: #1b1b1b,
+  primary: #6f4037,
+  snow-white: #fafafa,
+);
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+//++++Variable Breakpoints++++//
+@mixin breakpoint($point) {
+  @if $point=xlr {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  }
+}
+//++++General CSS++++//
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-weight: normal;
+  margin: 0;
+  color: color(font-dark);
+  font-size: 16px;
+  @include media-breakpoint-down(sm) {
+    font-size: 15px;
+  }
+}
+body {
+  &.mobileMenuActive {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+p {
+  letter-spacing: 0.25px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+a {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+input,
+select,
+textarea {
+  background: #f7f7f7;
+  border: none;
+  padding: 12px 15px;
+  margin: 0 0 15px;
+  width: 100%;
+  font-weight: 300;
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+}
+
+.fnavbar {
+  .nav-fixed {
+    height: 103px;
+    .nav-wrapper {
+      padding: 18px 0;
+      background: color(primary);
+    }
+  }
+}
+
+.sectionWrapper {
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1240px;
+}
