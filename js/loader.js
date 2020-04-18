@@ -5,6 +5,11 @@ $(document).ready(function () {
   $(".slider").slider({
     full_width: true,
   });
+  $(".myreviews").carousel({
+    numVisible: 7,
+    shift: 55,
+    padding: 30,
+  });
 });
 
 function toggleModal() {
